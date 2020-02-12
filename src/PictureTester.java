@@ -59,26 +59,26 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
-    //testChromakey();
-    //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
+    testNegate();
+    testGrayscale();
+    testFixUnderwater();
+    testMirrorVertical();
+    testMirrorTemple();
+    testMirrorArms();
+    testMirrorGull();
+    testMirrorDiagonal();
+    testCollage();
+    testCopy();
+    testEdgeDetection();
+    testEdgeDetection2();
+    testChromakey();
+    testEncodeAndDecode();
+    testGetCountRedOverValue(250);
+    testSetRedToHalfValueInTopHalf();
+    testClearBlueOverValue(200);
+    testGetAverageForColumn(0);
   }
 }
