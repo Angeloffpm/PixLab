@@ -50,6 +50,30 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
+
+  public static void testKeepOnlyBlue() {
+    Picture temple = new Picture("temple.jpg");
+    temple.keepOnlyBlue();
+    temple.explore();
+  }
+
+  public static void testNegate() {
+    Picture temple = new Picture("temple.jpg");
+    temple.negate();
+    temple.explore();
+  }
+
+  public static void testGrayscale() {
+    Picture swan = new Picture("swan.jpg");
+    swan.grayscale();
+    swan.explore();
+  }
+
+  public static void testFixUnderwater() {
+    Picture water = new Picture("water.jpg");
+    water.fixUnderwater();
+    water.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -58,27 +82,27 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
-    testKeepOnlyRed();
-    testKeepOnlyGreen();
-    testNegate();
-    testGrayscale();
+    // testZeroBlue();
+    // testKeepOnlyBlue();
+    // testKeepOnlyRed();
+    // testKeepOnlyGreen();
+    // testNegate();
+    // testGrayscale();
     testFixUnderwater();
-    testMirrorVertical();
-    testMirrorTemple();
-    testMirrorArms();
-    testMirrorGull();
-    testMirrorDiagonal();
-    testCollage();
-    testCopy();
-    testEdgeDetection();
-    testEdgeDetection2();
-    testChromakey();
-    testEncodeAndDecode();
-    testGetCountRedOverValue(250);
-    testSetRedToHalfValueInTopHalf();
-    testClearBlueOverValue(200);
-    testGetAverageForColumn(0);
+    // testMirrorVertical();
+    // testMirrorTemple();
+    // testMirrorArms();
+    // testMirrorGull();
+    // testMirrorDiagonal();
+    // testCollage();
+    // testCopy();
+    // testEdgeDetection();
+    // testEdgeDetection2();
+    // testChromakey();
+    // testEncodeAndDecode();
+    // testGetCountRedOverValue(250);
+    // testSetRedToHalfValueInTopHalf();
+    // testClearBlueOverValue(200);
+    // testGetAverageForColumn(0);
   }
 }
