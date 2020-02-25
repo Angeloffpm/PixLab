@@ -74,6 +74,18 @@ public class PictureTester
     water.fixUnderwater();
     water.explore();
   }
+
+  public static void testMirrorVerticalRightToLeft() {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+
+  public static void testCopy() {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -88,15 +100,16 @@ public class PictureTester
     // testKeepOnlyGreen();
     // testNegate();
     // testGrayscale();
-    testFixUnderwater();
+    // testFixUnderwater();
     // testMirrorVertical();
+    // testMirrorVerticalRightToLeft();
     // testMirrorTemple();
     // testMirrorArms();
     // testMirrorGull();
     // testMirrorDiagonal();
     // testCollage();
     // testCopy();
-    // testEdgeDetection();
+    testEdgeDetection();
     // testEdgeDetection2();
     // testChromakey();
     // testEncodeAndDecode();

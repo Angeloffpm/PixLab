@@ -170,6 +170,20 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void mirrorVerticalRightToLeft() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length; row++) {
+			for (int col = 0; col < width / 2; col++) {
+				leftPixel = pixels[row][col];
+				rightPixel = pixels[row][width - 1 - col];
+				leftPixel.setColor(rightPixel.getColor());
+			}
+		}
+	}
+
 	/** Mirror just part of a picture of a temple */
 	public void mirrorTemple() {
 		int mirrorPoint = 276;
@@ -217,6 +231,22 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void copy(Picture fromPic, int startRow, int startCol, int endRow, int endCol) {
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] toPixels = this.getPixels2D();
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+		for (int fromRow = 0, toRow = startRow; fromRow < endRow
+				&& toRow < toPixels.length; fromRow++, toRow++) {
+			for (int fromCol = 0, toCol = startCol; fromCol < endCol
+					&& toCol < toPixels[0].length; fromCol++, toCol++) {
+				fromPixel = fromPixels[fromRow][fromCol];
+				toPixel = toPixels[toRow][toCol];
+				toPixel.setColor(fromPixel.getColor());
+			}
+		}
+	}
+	
 	/** Method to create a collage of several pictures */
 	public void createCollage() {
 		Picture flower1 = new Picture("flower1.jpg");
@@ -233,6 +263,20 @@ public class Picture extends SimplePicture {
 		this.write("collage.jpg");
 	}
 
+	public void myCollage() {
+		Picture flower1 = new Picture("flower1.jpg");
+		Picture flower2 = new Picture("flower2.jpg");
+		Picture butterfly = new Picture("butterfly1.jpg");
+		flower1.zeroBlue();
+		flower2.negate();
+		butterfly.grayscale();
+		this.copy(flower1, 0, 0);
+		this.copy(flower2, 100, 0);
+		this.copy(butterfly, 200, 0);
+		this.mirrorVertical();
+		this.write("myCollage.jpg");
+	}
+
 	/**
 	 * Method to show large changes in color
 	 * 
@@ -242,17 +286,24 @@ public class Picture extends SimplePicture {
 	public void edgeDetection(int edgeDist) {
 		Pixel leftPixel = null;
 		Pixel rightPixel = null;
+		Pixel bottomPixel = null;
 		Pixel[][] pixels = this.getPixels2D();
 		Color rightColor = null;
+		Color bottomColor = null;
 		for (int row = 0; row < pixels.length; row++) {
 			for (int col = 0; col < pixels[0].length - 1; col++) {
 				leftPixel = pixels[row][col];
 				rightPixel = pixels[row][col + 1];
 				rightColor = rightPixel.getColor();
-				if (leftPixel.colorDistance(rightColor) > edgeDist)
+				bottomPixel = pixels[row + 1][col];
+				bottomColor = bottomPixel.getColor();
+				if (leftPixel.colorDistance(rightColor) > edgeDist) {
 					leftPixel.setColor(Color.BLACK);
-				else
+				} else if (leftPixel.colorDistance(bottomColor) > edgeDist) {
+					leftPixel.setColor(Color.BLACK);
+				} else {
 					leftPixel.setColor(Color.WHITE);
+				}
 			}
 		}
 	}
