@@ -47,8 +47,12 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
+    Picture swan2 = new Picture("swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
+    swan2.newEdgeDetection(10);
+    swan2.explore();
+    
   }
 
   public static void testKeepOnlyBlue() {
