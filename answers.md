@@ -6,3 +6,7 @@
 5. Yes
 6. Yes
 7. No Picture is not a parent to SimplePicture
+
+## Questions A7
+1. 90 loops
+2. 90 loops

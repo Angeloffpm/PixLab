@@ -103,6 +103,18 @@ public class PictureTester
     caterpillar.explore();
   }
 
+  public static void testMirrorArms() {
+    Picture snowman = new Picture("snowman.jpg");
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+
+  public static void testMirrorGull() {
+    Picture seagull = new Picture("seagull.jpg");
+    seagull.mirrorGull();
+    seagull.explore();
+  }
+
   public static void testCopy() {
     Picture canvas = new Picture("640x480.jpg");
     canvas.myCollage();
@@ -125,6 +137,8 @@ public class PictureTester
     // testFixUnderwater();
     // testMirrorVertical();
     // testMirrorVerticalRightToLeft();
+    // testMirrorHorizontal();
+    // testMirrorHorizontalBotToTop();
     // testMirrorTemple();
     // testMirrorArms();
     // testMirrorGull();
